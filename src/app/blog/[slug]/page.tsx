@@ -2,13 +2,11 @@ import { cwd } from 'node:process'
 import path from 'node:path';
 import matter from 'gray-matter';
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const postsDir = path.join(cwd(), "/src/app/blog/posts")
     const filePath = path.join(postsDir, `${slug}.md`);
     const { data, content } = matter.read(filePath)
-
-    console.log('content', content);
 
     return (
         <div className="mx-48 mt-24">
