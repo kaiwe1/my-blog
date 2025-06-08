@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { getAllPostsMeta } from "./blog/utils";
+import { getAllPostsMetaData } from "./blog/utils";
 
 export default function Home() {
-  const allPostsMeta = getAllPostsMeta();
+  const allPostsMetaData = getAllPostsMetaData();
 
   return (
-    <div className="mx-48 mt-24">
+    <div className="mx-48 mt-12">
       <div className="flex text-4xl">Blogs</div>
       <ul>
         {
-          allPostsMeta.map((meta) => (
-            <li key={meta.slug} className="text-2xl mt-4">
-              <Link href={`/blog/${meta.slug}`}>{meta.title}</Link>
+          allPostsMetaData.map((meta) => (
+            <li key={meta.slug} className="mt-4">
+              <Link className="text-2xl hover:underline" href={`/blog/${meta.slug}`}>{meta.title}</Link>
+              <p className="text-gray-500">{meta.description}</p>
             </li>
           ))
         }

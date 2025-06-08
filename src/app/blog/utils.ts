@@ -7,10 +7,12 @@ export interface PostMeta {
     title: string;
     date: string;
     slug: string;
-
+    tag: Array<string>
+    description: string
 }
 
-export function getAllPostsMeta(): PostMeta[] {
+// 获取所有帖子的Meta数据
+export function getAllPostsMetaData(): PostMeta[] {
     const postsDir = path.join(cwd(), "/src/app/blog/posts");
     const files = fs.readdirSync(postsDir);
     return files.map(filename => {
@@ -18,4 +20,13 @@ export function getAllPostsMeta(): PostMeta[] {
         const { data } = matter.read(filePath);
         return { ...data } as PostMeta
     })
+}
+
+// 通过Slug获取帖子metadata和内容数据
+export function getPostBySlug(slug: string) {
+    const postsDir = path.join(cwd(), "/src/app/blog/posts")
+    const filePath = path.join(postsDir, `${slug}.md`);
+    const { data, content } = matter.read(filePath)
+
+    return { meta: data, content}
 }
