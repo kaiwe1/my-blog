@@ -3,7 +3,7 @@ title: 'API设计最佳实践'
 slug: 'api-design'
 date: '2025-06-03'
 tag: ['backend']
-description: ''
+description: '服务向外提供接口的设计准则'
 ---
 
 ## 接口设计层面
@@ -14,8 +14,6 @@ description: ''
   - 入参设计符合业务需要
   - 出参格式统一, 如包含 code、message、data
   - 错误码规范, 如 200、400、500等
-
-TODO: 接口定义实际案例
 
 ### 版本控制
 - 提供版本号: 如 `/api/v1/trendData` 或 `/getTrendDataV1` 方便未来升级
