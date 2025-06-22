@@ -5,7 +5,8 @@ import matter from "gray-matter";
 
 export interface PostMeta {
     title: string;
-    date: string;
+    published_at: string;
+    updated_at: string;
     slug: string;
     tag: Array<string>
     description: string
@@ -26,7 +27,7 @@ export function getAllPostsMetaData(): PostMeta[] {
 export function getPostBySlug(slug: string) {
     const postsDir = path.join(cwd(), "/src/app/blog/posts")
     const filePath = path.join(postsDir, `${slug}.md`);
-    const { data, content } = matter.read(filePath)
+    const { data, content } = matter.read(filePath);
 
-    return { meta: data, content}
+    return { meta: data as PostMeta, content }
 }

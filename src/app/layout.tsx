@@ -4,7 +4,7 @@ import NavBar from "./components/nav-bar";
 
 export const metadata: Metadata = {
   title: "Kaiwei",
-  description: "Kaiwei's personal website",
+  description: "Kaiwei's blog",
 };
 
 export default function RootLayout({

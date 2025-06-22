@@ -1,7 +1,8 @@
 ---
 title: 'Hello World'
 slug: 'hello-world'
-date: '2025-06-03'
+published_at: '2025-06-03'
+updated_at: '2025-06-03'
 tag: ['frontend']
 description: '我的第一篇博客'
 ---
