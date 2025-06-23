@@ -13,7 +13,6 @@ export default function Home() {
             <li key={meta.slug} className="mt-4">
               <Link className="text-2xl hover:underline" href={`/blog/${meta.slug}`}>{meta.title}</Link>
               <p className="text-gray-500">{meta.description}</p>
-              <p className="text-gray-500">{meta.date}</p>
             </li>
           ))
         }
