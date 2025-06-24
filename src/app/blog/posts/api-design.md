@@ -1,10 +1,10 @@
 ---
-title: 'API设计最佳实践 in Node.js'
+title: 'API设计最佳实践 '
 slug: 'api-design'
 published_at: '2025-06-20'
-updated_at: '2025-06-20'
+updated_at: '2025-06-25'
 tag: ['backend']
-description: '后端服务向外提供接口的checklist'
+description: '后端服务向外提供接口指南'
 ---
 
 并不限制于Node.js, 只是本人在开发Node.js接口中的一些经验，结合ChatGPT总结整理。
@@ -18,6 +18,7 @@ description: '后端服务向外提供接口的checklist'
   - 出参格式统一, 如包含 code、message、data
   - 错误码规范, 如 200、400、500等
 
+举例, 一个请求成功的响应如下
 ```js
 {
   code: 200
@@ -30,7 +31,7 @@ description: '后端服务向外提供接口的checklist'
 ```
 
 ### 版本控制
-- 提供版本号: 如 `/api/v1/trendData` 或 `/getTrendDataV1` 方便未来升级
+- 当有持续迭代接口的需求时, 提供版本号: 如 `/api/v1/trendData` 或 `/getTrendDataV1` 方便未来升级
 
 ## 安全性层面
 ### 身份验证
@@ -52,8 +53,8 @@ description: '后端服务向外提供接口的checklist'
 
 ## 日志与监控
 ### 日志记录
-- 使用console记录请求参数、响应体
-- 使用 traceId 追踪具体某个请求
+- 使用 console 记录请求参数、响应体。在记录深层对象时需`JSON.stringify(obj, null, 2)`以防日志看不到具体对象数据.
+- 使用 traceId 追踪具体某个请求, 通常网关层面会在 request/response header 携带 traceId, 如果是自己控制的接口, 需注意透传.
 
 ### 告警
 - 异常情况需自动告警

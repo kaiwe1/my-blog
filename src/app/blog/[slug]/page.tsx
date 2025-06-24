@@ -8,14 +8,17 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
     return (
         <div className="mx-48 my-12">
-            <div className="text-4xl">{meta.title}</div>
-            <div className='date flex gap-3 text-sm'>
-                <div className="text-gray-500 my-4">Published {meta.published_at}</div>
-                <div className="text-gray-500 my-4">Upadted {meta.updated_at}</div>
-            </div>
-            <div className="markdown-body">
+            <section className='mb-5'>
+                <div className="text-4xl font-medium">{meta.title}</div>
+                <div className='flex gap-3 text-sm text-gray-500 my-4'>
+                    <div>Published {meta.published_at}</div>
+                    <div>Upadted {meta.updated_at}</div>
+                    <div>{meta.tag}</div>
+                </div>
+            </section>
+            <main className="markdown-body">
                 <Markdown>{content}</Markdown>
-            </div>
+            </main>
         </div>
     )
 }
