@@ -1,15 +1,17 @@
 import ListItem from "./list-item";
 
-function List({ items, getKey, getHref, getTitle, getDescription }: {
-  items: any[],
-  getKey: (item: any) => string,
-  getHref: (item: any) => string,
-  getTitle: (item: any) => string,
-  getDescription: (item: any) => string
-}) {
+type ListProps<T> = {
+  items: T[],
+  getKey: (item: T) => string,
+  getHref: (item: T) => string,
+  getTitle: (item: T) => string,
+  getDescription: (item: T) => string
+};
+
+function List<T>({ items, getKey, getHref, getTitle, getDescription }: ListProps<T>) {
   return (
     <ul>
-      {items.map(item => (
+      {items.map((item: T) => (
         <ListItem
           key={getKey(item)}
           href={getHref(item)}
