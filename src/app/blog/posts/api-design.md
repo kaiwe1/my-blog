@@ -2,7 +2,7 @@
 title: 'API设计最佳实践 '
 slug: 'api-design'
 published_at: '2025-06-20'
-updated_at: '2025-06-25'
+updated_at: '2025-06-30'
 tag: ['backend']
 description: '后端服务向外提供接口指南'
 ---
@@ -33,6 +33,9 @@ description: '后端服务向外提供接口指南'
 ### 版本控制
 - 当有持续迭代接口的需求时, 提供版本号: 如 `/api/v1/trendData` 或 `/getTrendDataV1` 方便未来升级
 
+### 案例
+[CoinGecko API Doc](https://docs.coingecko.com/reference/simple-price)
+
 ## 安全性层面
 ### 身份验证
 - BA鉴权, 类似于发放一个 API key 给到用户
@@ -48,16 +51,21 @@ description: '后端服务向外提供接口指南'
 ### 幂等性
 - POST 接口（比如支付）提供幂等保证，对于服务端处理过的请求，不重复处理。避免重复写入、发多条消息、重复支付等副作用。
 
-### 限流
+### 限流 Rate Limit
 - 使用消息队列(MQ)对接口进行限流
+
+### 并发与扩容
+- Serverless部署场景下, 可以设置阈值QPS或并发量自动扩容实例以增加并发量.
 
 ## 日志与监控
 ### 日志记录
 - 使用 console 记录请求参数、响应体。在记录深层对象时需`JSON.stringify(obj, null, 2)`以防日志看不到具体对象数据.
-- 使用 traceId 追踪具体某个请求, 通常网关层面会在 request/response header 携带 traceId, 如果是自己控制的接口, 需注意透传.
+- 使用 traceId 追踪具体某个请求链路
+  - 通常网关层面会在 request/response header 携带 traceId
+  - 如果是自己控制的接口, 需注意透传traceId. traceId通常使用uuid库+middleware的方式生成, 并挂载在 ctx 中
 
 ### 告警
-- 异常情况需自动告警
+- 异常情况需自动告警, 例如执行超时、调用失败...
 
 
 
