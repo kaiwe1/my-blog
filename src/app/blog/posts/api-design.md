@@ -38,8 +38,43 @@ description: '后端服务向外提供接口指南'
 
 ## 安全性层面
 ### 身份验证
-- BA鉴权, 类似于发放一个 API key 给到用户
-- 登录态校验 (常通过统一网关校验SSO Cookie)
+- 服务端与服务端通信
+  - API Key 机制
+  - HMAC 签名机制
+- 前端与服务端通信
+  - API网关登录态校验, 通过统一网关发放和校验SSO Cookie
+
+HMAC 签名机制
+```js
+// 使用密钥(secret)+内容(method、path、date)生成签名
+function BAHeader (path, method, secret) {
+    if (!secret)
+        throw new Error('client secret must not be empty!')
+
+    path = url.parse(path).pathname
+    method = (method || 'GET').toUpperCase()
+
+    var date = (new Date).toGMTString()
+    var sha = crypto.createHmac('sha1', secret)
+                .update(method + ' ' + path + '\n' + date)
+                .digest()
+                .toString('base64')
+    var authStr = client + ':' + sha
+
+    return {
+        Date: date,
+        Authorization: authStr
+    }
+}
+
+// 客户端请求接口
+const baHeader = BAHeader('/api/getTrendData', 'GET', 'this is a secret')
+axios.get('/api/getTrendData', { headers: baHeader })
+
+// 服务端收到请求后, 可以通过client在数据库中寻找对应的secret, 然后进行生成签名和请求的签名进行比对
+```
+
+和 API Key相比, HMAC 签名机制的优点是即使有人截获了签名, 也无法伪造请求 (不知道secret), 但是实现比 API Key略复杂.
 
 ### 权限控制
 - 不同用户/应用只能访问自己权限内的资源, 简单情况下, 用户/应用应该只能访问自己的资源。比如一个订阅系统, 用户Tom在应用A和应用B都保存了订阅, 但是在应用A中应该只能看到应用A的订阅而不能看到应用B的订阅, 这要求表设计需要有应用这个字段。
