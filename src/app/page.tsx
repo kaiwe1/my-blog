@@ -1,5 +1,5 @@
-import { getAllPostsMetaData } from "./blog/utils";
-import { appsData } from "./lib/const";
+import { getAllPostsMetaData } from "./blog/lib/utils";
+import { chartsData } from "./lib/const";
 import List from "./components/list";
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
         />
       </section>
       <section>
-        <div className="text-4xl">App</div>
+        <div className="text-4xl">Charts</div>
         <List
-          items={appsData}
+          items={chartsData}
           getKey={item => item.link}
           getHref={item => item.link}
           getTitle={item => item.name}

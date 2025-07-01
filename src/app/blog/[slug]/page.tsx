@@ -1,6 +1,6 @@
 import Markdown from 'react-markdown';
 import "github-markdown-css"
-import { getPostBySlug } from '../utils';
+import { getPostBySlug } from '../lib/utils';
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;

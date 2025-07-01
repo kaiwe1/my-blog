@@ -1,10 +1,10 @@
-const appsData = [
+const chartsData = [
     {
       name: "Digital Asset Charts",
       description: "数字资产数据图表",
-      link: "/digital-asset-charts",
+      link: "/charts",
       icon: "📊",
     },
   ];
   
-export { appsData }
+export { chartsData }
