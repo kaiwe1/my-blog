@@ -1,5 +1,5 @@
 import { getAllPostsMetaData } from "./blog/utils";
-import appsData from "./apps/appsData";
+import { appsData } from "./lib/const";
 import List from "./components/list";
 
 export default function Home() {
