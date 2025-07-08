@@ -6,7 +6,7 @@ export default function Home() {
   const allPostsMetaData = getAllPostsMetaData();
 
   return (
-    <div className="mx-48 mt-12">
+    <div>
       <section className="mb-12">
         <div className="flex text-4xl">Blog</div>
         <List

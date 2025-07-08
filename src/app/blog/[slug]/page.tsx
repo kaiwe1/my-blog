@@ -7,7 +7,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     const { meta, content } = getPostBySlug(slug)
 
     return (
-        <div className="mx-48 my-12">
+        <div>
             <section className='mb-5'>
                 <div className="text-4xl font-medium">{meta.title}</div>
                 <div className='flex gap-3 text-sm text-gray-500 my-4'>

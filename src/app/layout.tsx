@@ -17,7 +17,9 @@ export default function RootLayout({
     <html>
       <body>
         <NavBar />
-        {children}
+        <div className="mx-48 my-12">
+          {children}
+        </div>
       </body>
     </html>
   );
