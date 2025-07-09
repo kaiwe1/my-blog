@@ -32,6 +32,7 @@ description: '后端服务向外提供接口指南'
 
 ### 版本控制
 - 当有持续迭代接口的需求时, 提供版本号: 如 `/api/v1/trendData` 或 `/getTrendDataV1` 方便未来升级
+- 对现有接口的返回值增加字段通常是安全的, 而对现有接口返回值删减字段或者修改字段名称可能会影响到现有业务的接口使用方, 造成代码逻辑报错. eg. 假设接口A的使用方依赖了status字段作状态判断, 但是后续迭代中直接删除了这个字段, 那么会造成代码产生错误而影响业务正常运行
 
 ### 案例
 [CoinGecko API Doc](https://docs.coingecko.com/reference/simple-price)
