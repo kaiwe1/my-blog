@@ -1,4 +1,4 @@
-const chartsData = [
+const sideProjects = [
     {
       name: "Digital Asset Charts",
       description: "数字资产数据图表",
@@ -7,4 +7,4 @@ const chartsData = [
     },
   ];
   
-export { chartsData }
+export { sideProjects }

@@ -1,5 +1,5 @@
 import { getAllPostsMetaData } from "./blog/lib/utils";
-import { chartsData } from "./lib/const";
+import { sideProjects } from "./lib/const";
 import List from "./components/list";
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
         />
       </section>
       <section>
-        <div className="text-4xl">Charts</div>
+        <div className="text-4xl">Side Projects</div>
         <List
-          items={chartsData}
+          items={sideProjects}
           getKey={item => item.link}
           getHref={item => item.link}
           getTitle={item => item.name}
