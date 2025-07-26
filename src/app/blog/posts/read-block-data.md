@@ -59,9 +59,20 @@ description: '当我们通过钱包和智能合约交互时, 区块链上发生�
 - 时间戳: 交易发送的时间
 - From: 用户地址
 - Interacted With: 智能合约地址
-- ERC-20 Tokens Transfered: ERC-20 代币转账信息
+- ERC-20 Tokens Transfered: ERC-20 代币转账信息. 我们可以看到用户想 yoUSD Token 智能合约转账了 500 USDC, 并且得到了 489.98 个 yoUSD 作为凭证. 此后, 我们可以调用该智能合约的 redeem 函数来赎回 USDC. 
 - Value: 价值, 通常对于智能合约交互来说, 价值为0
 - Transaction Fee: 交易费, 支付给验证者(即质押者)的费用. 当我们拥有32个ETH时, 我们可以自建节点进行以太坊质押, 参与到区块提议、打包交易、验证区块中来, 同时获取ETH奖励.
 - Gas Price: 当我们执行 deposit 时, 我们实际上执行了智能合约的函数, 这个函数的复杂程度决定了我们需要的 Gas, 而 Gas Price 就是我们需要对这次交易执行代码需要支付的单位成本.
 
+我们点击这笔交易所在的区块, 我们可以看到区块信息
+
 ![Transaction案例](https://6n9ck0v3cffymhqw.public.blob.vercel-storage.com/read-block-data/block.png)
+
+从上至下依次是
+
+- 区块高度: 当前区块在区块链上的编号, 反应当前区块链的长度.
+- 时间戳
+- 交易: 当前区块包含135笔交易和150笔合约内部交易
+- Gas Used: 使用掉的 Gas
+- Gas Limit: 当前区块所包含交易的Gas上限, 由于简单转账、合约执行、NFT Mint等交易消耗的 Gas 不同, 所以一个区块所包含的交易并不是固定数量的, 当一个区块所包含的交易达到了 Gas Limit, 验证者就不会继续打包交易到区块中, 随后会将区块进行全网广播, 等待其他验证者投票确认, 形成共识.
+- Base Fee Per Gas: Gas的基础费用
