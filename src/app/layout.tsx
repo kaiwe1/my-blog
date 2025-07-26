@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./components/nav-bar";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Kaiwei Zhang's Blog | 随手记",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <div className="mx-48 my-12">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
