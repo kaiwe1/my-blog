@@ -2,6 +2,14 @@ import Markdown from 'react-markdown';
 import "github-markdown-css"
 import { getPostBySlug } from '../lib/utils';
 
+const markdownComponents = {
+    img: ({ node, ...props }: any) => (
+        <span style={{ display: 'block', textAlign: 'center', margin: '2em 0' }}>
+            <img {...props} style={{ maxWidth: '800px', height: 'auto', display: 'inline-block' }} />
+        </span>
+    )
+};
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const { meta, content } = getPostBySlug(slug)
@@ -17,7 +25,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 </div>
             </section>
             <main className="markdown-body">
-                <Markdown>{content}</Markdown>
+                <Markdown components={markdownComponents}>{content}</Markdown>
             </main>
         </div>
     )
