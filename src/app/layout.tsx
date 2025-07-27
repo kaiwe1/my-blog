@@ -4,9 +4,9 @@ import NavBar from "./components/nav-bar";
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  title: "Kaiwei Zhang's Blog | 随手记",
+  title: "KZ's Blog | 博客随手记",
   description: "Frontend, Backend, AI and Web3",
-  keywords: ["Frontend", "Backend", "AI", "Blog", "Coding", "Kaiwei Zhang"],
+  keywords: ["Frontend", "Backend", "AI", "Blog", "Coding", "KZ"],
 };
 
 export default function RootLayout({

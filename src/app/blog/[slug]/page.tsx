@@ -3,8 +3,8 @@ import "github-markdown-css"
 import { getPostBySlug } from '../lib/utils';
 
 const markdownComponents = {
-    img: ({ node, ...props }: any) => (
-        <span style={{ display: 'block', textAlign: 'center', margin: '2em 0' }}>
+    img: ({ ...props }) => (
+        <span style={{ display: 'block', textAlign: 'center', margin: '1em 0' }}>
             <img {...props} style={{ maxWidth: '800px', height: 'auto', display: 'inline-block' }} />
         </span>
     )
