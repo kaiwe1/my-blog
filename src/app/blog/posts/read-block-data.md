@@ -2,7 +2,7 @@
 title: '如何阅读链上交易数据'
 slug: 'read-block-data'
 published_at: '2025-07-26'
-updated_at: '2025-07-26'
+updated_at: '2025-08-03'
 tag: ['eth']
 description: '当我们通过钱包和智能合约交互时, 区块链上发生了什么?'
 ---
@@ -60,7 +60,7 @@ description: '当我们通过钱包和智能合约交互时, 区块链上发生�
 - From: 用户地址
 - Interacted With: 智能合约地址
 - ERC-20 Tokens Transfered: ERC-20 代币转账信息. 我们可以看到用户想 yoUSD Token 智能合约转账了 500 USDC, 并且得到了 489.98 个 yoUSD 作为凭证. 此后, 我们可以调用该智能合约的 redeem 函数来赎回 USDC. 
-- Value: 价值, 通常对于智能合约交互来说, 价值为0
+- Value: 价值, 通常对于智能合约交互来说, 价值为0. 例如, 当我们希望unstack ETH 时, 我们将看到一笔成功的value为0的交易, 仅代表我们提交了unstake请求但是还没有将ETH退还给你.
 - Transaction Fee: 交易费, 支付给验证者(即质押者)的费用. 当我们拥有32个ETH时, 我们可以自建节点进行以太坊质押, 参与到区块提议、打包交易、验证区块中来, 同时获取ETH奖励.
 - Gas Price: 当我们执行 deposit 时, 我们实际上执行了智能合约的函数, 这个函数的复杂程度决定了我们需要的 Gas, 而 Gas Price 就是我们需要对这次交易执行代码需要支付的单位成本.
 
