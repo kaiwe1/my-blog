@@ -4,7 +4,7 @@ import NavBar from "./components/nav-bar";
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  title: "KZ's Blog | 博客随手记",
+  title: "KZ's Blog",
   description: "Frontend, Backend, AI and Web3",
   keywords: ["Frontend", "Backend", "AI", "Blog", "Coding", "KZ"],
 };

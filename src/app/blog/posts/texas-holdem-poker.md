@@ -1,5 +1,5 @@
 ---
-title: '怎么玩德州扑克?'
+title: '德州扑克入门'
 slug: 'texas-holdem-poker'
 published_at: '2025-08-03'
 updated_at: '2025-08-03'

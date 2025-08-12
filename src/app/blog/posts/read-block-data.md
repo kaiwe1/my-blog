@@ -1,5 +1,5 @@
 ---
-title: '如何阅读链上交易数据'
+title: '阅读链上交易数据'
 slug: 'read-block-data'
 published_at: '2025-07-26'
 updated_at: '2025-08-03'

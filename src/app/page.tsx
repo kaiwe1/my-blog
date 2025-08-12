@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <section className="mb-12">
-        <div className="flex text-2xl font-bold">Blog</div>
+        <div className="flex text-4xl font-bold mb-12">Blog</div>
         <List
           items={allPostsMetaData}
           getKey={meta => meta.slug}
@@ -17,7 +17,7 @@ export default function Home() {
           getDescription={meta => meta.description}
           getReleaseTime={meta => meta.published_at}
         />
-        <Link href="/blog" className="mt-8 inline-block hover:underline">View all posts →</Link>
+        <Link href="/blog" className="mt-12 inline-block hover:underline">Archive →</Link>
       </section>
     </div>
   );
